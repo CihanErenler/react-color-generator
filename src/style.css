@@ -1,0 +1,258 @@
+:root {
+  --btn-primary: #06f;
+  --btn-prinary-light: #c5dcff;
+  --bg-color: #f1f5f9;
+  --color-white: #fff;
+  --color-black: #000;
+  --lighter-gray: #f0f0f0;
+  --light-gray: #d1d1d1;
+  --dark-gray: #333;
+  --placeholder: #c0c0c0;
+  --light-gray-2: #9e9e9e;
+  --error: #ff6565;
+  --transition: all 0.3s ease;
+}
+
+/* Reset */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  font-family: "Roboto", sans-serif;
+  height: 100vh;
+  background-color: var(--bg-color);
+}
+
+a {
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 400;
+}
+
+/* Utilities */
+.container {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0 20px;
+  height: 100%;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 250px;
+  height: 45px;
+  font-size: 15px;
+  border-radius: 10px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: var(--transition);
+  outline: none;
+}
+
+.btn.btn-primary {
+  background-color: var(--btn-primary);
+  color: var(--color-white);
+  border-color: var(--btn-primary);
+  opacity: 0.8;
+}
+
+.btn.btn-primary:hover {
+  opacity: 1;
+}
+
+.btn.btn-primary:focus {
+  box-shadow: 0 0 0 4px var(--btn-prinary-light);
+}
+
+.btn.btn-secondary {
+  background-color: var(--color-white);
+  color: var(--color-black);
+  border-color: var(--light-gray);
+}
+
+.btn.btn-secondary:hover {
+  border-color: var(--light-gray-2);
+}
+
+.chrome-picker {
+  position: absolute;
+  top: 50px;
+  right: -200px;
+  z-index: 9;
+}
+
+#root {
+  height: 100%;
+}
+
+#main-header {
+  background-color: var(--color-white);
+  height: 70px;
+}
+
+#main-header .container {
+  display: flex !important;
+  align-items: center;
+}
+
+.symbol {
+  width: 40px;
+  margin-right: 10px;
+}
+
+/* Main */
+#main {
+  height: 100%;
+}
+
+/* Main header */
+.picker-wrap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  background-color: var(--color-white);
+  max-width: 600px;
+  margin: 30px auto;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
+    rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+}
+
+.picker-title {
+  font-size: 40px;
+  font-weight: 300;
+}
+
+/* Inspector */
+.inspector {
+  position: absolute;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--color-white);
+  cursor: pointer;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 50px;
+}
+
+.input-wrapper {
+  position: relative;
+  width: 100%;
+  margin: 15px 0;
+  display: flex;
+}
+
+.picker-icon {
+  width: 45px;
+  border: none;
+  background-color: var(--light-gray);
+  cursor: pointer;
+  border-radius: 0 10px 10px 0;
+}
+
+.picker-icon-i {
+  font-size: 20px;
+  color: var(--dark-gray);
+  pointer-events: none;
+}
+
+.color-name {
+  width: 100%;
+  height: 45px;
+  background-color: var(--bg-color);
+  border: none;
+  border-radius: 10px 0 0 10px;
+  padding: 0 20px;
+  font-size: 18px;
+  border: 1px solid var(--lighter-gray);
+  transition: var(--transition);
+}
+
+.color-name.error {
+  border-color: var(--error);
+}
+
+.color-name:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px var(--btn-prinary-light);
+}
+
+.color-name::placeholder {
+  color: var(--placeholder);
+}
+
+/*Colors */
+.colors {
+  max-width: 1600px;
+  height: 100%;
+  margin: 30px auto;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 5px;
+}
+
+.single-color {
+  height: 140px;
+  display: grid;
+  place-items: center;
+  border-radius: 8px;
+  position: relative;
+}
+
+.hex-value {
+  position: absolute;
+  bottom: 15px;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.copy-button {
+  background-color: transparent;
+  border: none;
+  visibility: none;
+  opacity: 0;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.single-color:hover .copy-button {
+  visibility: visible;
+  opacity: 1;
+}
+
+.copy-icon {
+  font-size: 30px;
+}
+
+.copy-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
