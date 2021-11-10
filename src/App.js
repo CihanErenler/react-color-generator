@@ -4,16 +4,21 @@ import Main from "./components/Main";
 import Values from "values.js";
 
 function App() {
-  const [amount, setAmount] = useState(10);
+  const [amount, setAmount] = useState(5);
   const [showColorPicker, setShowColorPicker] = useState(false);
-  const [color, setColor] = useState("#000");
+  const [color, setColor] = useState("#fdb741");
   const [inputVal, setInputVal] = useState(color);
   const [isError, setIsError] = useState(false);
-  const [list, setList] = useState(new Values("#06f").all(amount));
+  const [list, setList] = useState(new Values("#fdb741").all(amount));
   const [colorObj, setColorObj] = useState({
-    rgb: { r: 0, g: 102, b: 255, a: 1 },
-    hex: "#06f",
+    rgb: { r: 253, g: 183, b: 65, a: 1 },
+    hex: "#fdb741",
   });
+
+  useEffect(() => {
+    const newList = new Values(inputVal).all(amount);
+    setList(newList);
+  }, [amount]);
 
   useEffect(() => {
     setColor(colorObj.hex);
@@ -29,7 +34,7 @@ function App() {
 
   const handleGenerateColor = () => {
     try {
-      const newList = new Values(inputVal).all();
+      const newList = new Values(inputVal).all(amount);
       setList(newList);
       setIsError(false);
     } catch (err) {
@@ -54,6 +59,8 @@ function App() {
         inputVal={inputVal}
         setInputVal={setInputVal}
         isError={isError}
+        setAmount={setAmount}
+        amount={amount}
       />
     </section>
   );

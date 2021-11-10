@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { calcBrightness } from "../utils";
 import { BiCopy } from "react-icons/bi";
-import { BsCheckLg } from "react-icons/bs";
 
 function SingleColor({ color, index, rgb }) {
   const [showAlert, setShowAlert] = useState(false);
