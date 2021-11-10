@@ -2,9 +2,14 @@ import React, { useState, useEffect } from "react";
 import Header from "./components/Header";
 import Main from "./components/Main";
 import Values from "values.js";
+import Alert from "./components/Alert";
+
+// const AlertContext = React.createContext();
 
 function App() {
   const [amount, setAmount] = useState(5);
+  const [showMessage, setShowMessage] = useState(false);
+  const [copied, setCopied] = useState("");
   const [showColorPicker, setShowColorPicker] = useState(false);
   const [color, setColor] = useState("#fdb741");
   const [inputVal, setInputVal] = useState(color);
@@ -14,6 +19,14 @@ function App() {
     rgb: { r: 253, g: 183, b: 65, a: 1 },
     hex: "#fdb741",
   });
+
+  useEffect(() => {
+    const timeOut = setShowMessage(() => {
+      setShowMessage(false);
+    }, 3000);
+
+    return () => clearTimeout(timeOut);
+  }, [showMessage]);
 
   useEffect(() => {
     const newList = new Values(inputVal).all(amount);
@@ -44,7 +57,9 @@ function App() {
   };
 
   return (
-    <section id="main">
+    // <AlertContext.Provider value={{ setShowMessage, setCopied }}>
+    <div id="main">
+      {/* <Alert text={`Copied "${color}" to clipboard`} type="success" /> */}
       <Header />
       <Main
         color={color}
@@ -62,7 +77,8 @@ function App() {
         setAmount={setAmount}
         amount={amount}
       />
-    </section>
+    </div>
+    // </AlertContext.Provider>
   );
 }
 

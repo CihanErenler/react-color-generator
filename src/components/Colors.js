@@ -7,7 +7,9 @@ function Colors({ colors }) {
       {colors.map((color, index) => {
         const hex = color.hex;
         const rgb = color.rgb;
-        return <SingleColor key={hex} color={hex} rgb={rgb} index={index} />;
+        return (
+          <SingleColor key={hex + index} color={hex} rgb={rgb} index={index} />
+        );
       })}
     </section>
   );

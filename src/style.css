@@ -13,6 +13,7 @@
   --error: #ff6565;
   --outline: 0 0 0 4px var(--btn-prinary-light);
   --transition: all 0.3s ease;
+  --success: #4bb543;
 }
 
 /* Reset */
@@ -93,6 +94,38 @@ h6 {
   border-color: var(--light-gray-2);
 }
 
+/* Alert */
+.alert {
+  position: absolute;
+  max-width: 320px;
+  width: 400px;
+  height: 40px;
+  background-color: rgb(252, 255, 245);
+  top: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+  border-left: 3px solid var(--success);
+}
+
+.check-icon {
+  color: var(--success);
+  margin: 0 20px;
+}
+
+.fade-in {
+  animation: fadein 0.6s ease forwards;
+}
+
+@keyframes fadein {
+  to {
+    top: 20px;
+  }
+}
+
+/* Header part */
 .chrome-picker {
   position: absolute;
   top: 50px;
@@ -290,7 +323,6 @@ h6 {
 .single-color {
   height: 100px;
   display: grid;
-
   place-items: center;
   position: relative;
 }
@@ -322,6 +354,7 @@ h6 {
 }
 
 .copy-text {
+  font-size: 15px;
   position: absolute;
   top: 50%;
   left: 50%;

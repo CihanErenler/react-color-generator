@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useContext } from "react";
 import Inspector from "./Inspector";
 import { ChromePicker } from "react-color";
 import Button from "./Button";
@@ -27,6 +27,7 @@ function Main(prop) {
   const picker = useRef(null);
   const [filter, setFilter] = useState("all");
   const [itemsToShow, setItemsToShow] = useState(colors);
+  // const { setShowMessage, setCopied } = useContext(AlertContext)
 
   useEffect(() => {
     if (filter === "all") {
@@ -82,15 +83,15 @@ function Main(prop) {
           name="amount"
           id="amount"
           value={amount}
-          onChange={(e) => setAmount(e.target.value)}
+          onChange={(e) => setAmount(parseInt(e.target.value))}
         >
-          <option value={20}>5</option>
-          <option value={10} defaultValue>
+          <option value="20">5</option>
+          <option value="10" defaultValue>
             10
           </option>
-          <option value={5}>20</option>
-          <option value={2}>50</option>
-          <option value={1}>100</option>
+          <option value="5">20</option>
+          <option value="2">50</option>
+          <option value="1">100</option>
         </select>
         <div className="radio-wrapper">
           <Checkbox
