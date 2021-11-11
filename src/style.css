@@ -360,3 +360,63 @@ h6 {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+/* Media queries */
+
+@media only screen and (min-width: 1280px) {
+  .colors {
+    grid-template-columns: repeat(14, 1fr);
+  }
+}
+
+@media only screen and (max-width: 1279px) and (min-width: 770px) {
+  .colors {
+    grid-template-columns: repeat(10, 1fr);
+  }
+
+  #main-header {
+    height: 50px;
+  }
+
+  .logo {
+    font-size: 26px;
+  }
+
+  .picker-wrap {
+    padding: 20px;
+    max-width: 500px;
+  }
+
+  .picker-wrap label,
+  .picker-wrap p {
+    font-size: 14px;
+  }
+
+  .picker-title {
+    font-size: 32px;
+  }
+}
+
+@media only screen and (max-width: 1279px) and (min-width: 920px) {
+  .colors {
+    grid-template-columns: repeat(10, 1fr);
+  }
+}
+
+@media only screen and (max-width: 919px) and (min-width: 481px) {
+  .colors {
+    grid-template-columns: repeat(5, 1fr);
+    padding: 20px 0;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .colors {
+    grid-template-columns: repeat(3, 1fr);
+    padding: 20px 0;
+  }
+
+  .radio-wrap {
+    flex-direction: column;
+  }
+}
