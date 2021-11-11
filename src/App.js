@@ -4,10 +4,8 @@ import Main from "./components/Main";
 import Values from "values.js";
 import Alert from "./components/Alert";
 
-// const AlertContext = React.createContext();
-
 function App() {
-  const [amount, setAmount] = useState(5);
+  const [amount, setAmount] = useState(10);
   const [showMessage, setShowMessage] = useState(false);
   const [copied, setCopied] = useState("");
   const [showColorPicker, setShowColorPicker] = useState(false);
@@ -57,10 +55,9 @@ function App() {
   };
 
   return (
-    // <AlertContext.Provider value={{ setShowMessage, setCopied }}>
     <div id="main">
-      {/* <Alert text={`Copied "${color}" to clipboard`} type="success" /> */}
       <Header />
+
       <Main
         color={color}
         setColor={setColorObj}
@@ -78,7 +75,6 @@ function App() {
         amount={amount}
       />
     </div>
-    // </AlertContext.Provider>
   );
 }
 

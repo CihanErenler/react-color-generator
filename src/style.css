@@ -363,13 +363,13 @@ h6 {
 
 /* Media queries */
 
-@media only screen and (min-width: 1280px) {
+@media only screen and (min-width: 1441px) {
   .colors {
     grid-template-columns: repeat(14, 1fr);
   }
 }
 
-@media only screen and (max-width: 1279px) and (min-width: 770px) {
+@media only screen and (max-width: 1440px) and (min-width: 770px) {
   .colors {
     grid-template-columns: repeat(10, 1fr);
   }

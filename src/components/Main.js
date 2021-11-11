@@ -27,7 +27,6 @@ function Main(prop) {
   const picker = useRef(null);
   const [filter, setFilter] = useState("all");
   const [itemsToShow, setItemsToShow] = useState(colors);
-  // const { setShowMessage, setCopied } = useContext(AlertContext)
 
   useEffect(() => {
     if (filter === "all") {
