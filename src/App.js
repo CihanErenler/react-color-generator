@@ -41,6 +41,7 @@ function App() {
   useEffect(() => {
     const newList = new Values(inputVal).all(amount);
     setList(newList);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [amount]);
 
   useEffect(() => {
