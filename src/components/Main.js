@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useContext } from "react";
+import React, { useEffect, useRef } from "react";
 import Inspector from "./Inspector";
 import { ChromePicker } from "react-color";
 import Button from "./Button";
@@ -10,7 +10,7 @@ import { useState } from "react/cjs/react.development";
 function Main(prop) {
   const {
     color,
-    colorObj,
+    // colorObj,
     setColorObj,
     showColorPicker,
     setShowColorPicker,
@@ -60,8 +60,6 @@ function Main(prop) {
         <h1 className="picker-title">Color Palette Generator</h1>
         <div className="input-wrapper">
           <Inspector
-            text={color}
-            rgb={colorObj.rgb}
             color={color}
             handleClick={handleClick}
             showColorPicker={showColorPicker}

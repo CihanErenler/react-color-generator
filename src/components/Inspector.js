@@ -1,12 +1,10 @@
 import React from "react";
-import { calcBrightness } from "../utils";
 
-function Inspector({ rgb, handleClick, showColorPicker }) {
-  const { backgroundColour } = calcBrightness(Object.values(rgb));
+function Inspector({ color, handleClick, showColorPicker }) {
   return (
     <div
       className="inspector"
-      style={{ backgroundColor: backgroundColour }}
+      style={{ backgroundColor: color }}
       onClick={() => handleClick(!showColorPicker)}
     ></div>
   );

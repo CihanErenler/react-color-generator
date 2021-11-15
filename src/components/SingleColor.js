@@ -1,11 +1,12 @@
 import React, { useState, useEffect, useContext } from "react";
 import { calcBrightness } from "../utils";
 import { BiCopy } from "react-icons/bi";
+import { AlertContext } from "../context/AlertContext";
 
-function SingleColor({ color, index, rgb, alert }) {
+function SingleColor({ color, index, rgb }) {
   const [showAlert, setShowAlert] = useState(false);
+  const { setCopied, setMessage } = useContext(AlertContext);
 
-  // const { setShowMessage, setCopied } = useContext(AlertContext);
   useEffect(() => {
     const alert = setTimeout(() => {
       setShowAlert(false);
@@ -30,7 +31,8 @@ function SingleColor({ color, index, rgb, alert }) {
             onClick={() => {
               navigator.clipboard.writeText(`#${color}`);
               setShowAlert(true);
-              // alert(true);
+              setCopied(`#${color}`);
+              setMessage(true);
             }}
           />
         )}
