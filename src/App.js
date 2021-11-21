@@ -30,8 +30,7 @@ function App() {
   }, [copied]);
 
   useEffect(() => {
-    const newList = new Values(inputVal).all(amount);
-    setList(newList);
+    handleGenerateColor();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [amount]);
 
