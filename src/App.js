@@ -58,7 +58,6 @@ function App() {
     } catch (err) {
       console.log(err);
       setIsError(true);
-      setMessage({ show: true, type: "danger" });
     }
   };
 
