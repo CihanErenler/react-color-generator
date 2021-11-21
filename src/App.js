@@ -7,9 +7,8 @@ import { AlertContext } from "./context/AlertContext";
 
 function App() {
   const [amount, setAmount] = useState(10);
-  const [showMessage, setShowMessage] = useState(false);
   const [copied, setCopied] = useState("");
-  const [message, setMessage] = useState(false);
+  const [message, setMessage] = useState({ show: false, type: "success" });
   const [showColorPicker, setShowColorPicker] = useState(false);
   const [color, setColor] = useState("#fdb741");
   const [inputVal, setInputVal] = useState(color);
@@ -21,16 +20,8 @@ function App() {
   });
 
   useEffect(() => {
-    const timeOut = setShowMessage(() => {
-      setShowMessage(false);
-    }, 3000);
-
-    return () => clearTimeout(timeOut);
-  }, [showMessage]);
-
-  useEffect(() => {
     const timeOut = setTimeout(() => {
-      setMessage(false);
+      setMessage({ show: false, type: "seccess" });
     }, 4000);
 
     return () => {
@@ -67,21 +58,15 @@ function App() {
     } catch (err) {
       console.log(err);
       setIsError(true);
+      setMessage({ show: true, type: "danger" });
     }
   };
 
   return (
     <div id="main">
-      {message && (
-        <Alert
-          text={copied}
-          type="success"
-          setMessage={setMessage}
-          copied={copied}
-        />
-      )}
-      <Header />
-      <AlertContext.Provider value={{ setCopied, setMessage }}>
+      {message.show && <Alert text={copied} type={message.type} />}
+      <AlertContext.Provider value={{ setCopied, setMessage, inputVal }}>
+        <Header />
         <Main
           color={color}
           setColor={setColorObj}

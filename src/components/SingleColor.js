@@ -5,7 +5,7 @@ import { AlertContext } from "../context/AlertContext";
 
 function SingleColor({ color, index, rgb }) {
   const [showAlert, setShowAlert] = useState(false);
-  const { setCopied, setMessage } = useContext(AlertContext);
+  const { setCopied, setMessage, inputVal } = useContext(AlertContext);
 
   useEffect(() => {
     const alert = setTimeout(() => {
@@ -32,12 +32,14 @@ function SingleColor({ color, index, rgb }) {
               navigator.clipboard.writeText(`#${color}`);
               setShowAlert(true);
               setCopied(`#${color}`);
-              setMessage(true);
+              setMessage({ show: true, type: "success" });
             }}
           />
         )}
       </button>
-      <p className="hex-value">{index === 10 ? "Base Color" : `#${color}`}</p>
+      <p className="hex-value">
+        {`#${color}` === inputVal ? "Base Color" : `#${color}`}
+      </p>
     </div>
   );
 }
