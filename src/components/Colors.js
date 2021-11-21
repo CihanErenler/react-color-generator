@@ -5,8 +5,7 @@ function Colors({ colors }) {
   return (
     <section className="colors">
       {colors.map((color, index) => {
-        const hex = color.hex;
-        const rgb = color.rgb;
+        const { hex, rgb } = color;
         return (
           <SingleColor key={hex + index} color={hex} rgb={rgb} index={index} />
         );

@@ -1,11 +1,10 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Inspector from "./Inspector";
 import { ChromePicker } from "react-color";
 import Button from "./Button";
 import Colors from "./Colors";
 import Checkbox from "./Checkbox";
 import { MdOutlineColorize } from "react-icons/md";
-import { useState } from "react/cjs/react.development";
 
 function Main(prop) {
   const {
@@ -25,17 +24,18 @@ function Main(prop) {
   } = prop;
 
   const picker = useRef(null);
-  const [filter, setFilter] = useState("all");
+  const [colorFilter, setColorFilter] = useState("");
   const [itemsToShow, setItemsToShow] = useState(colors);
 
   useEffect(() => {
-    if (filter === "all") {
+    if (colorFilter === "") return;
+    if (colorFilter === "all") {
       setItemsToShow(colors);
       return;
     }
-    const filtered = colors.filter((color) => color.type === filter);
+    const filtered = colors.filter((color) => color.type === colorFilter);
     setItemsToShow(filtered);
-  }, [colors, filter]);
+  }, [colors, colorFilter]);
 
   useEffect(() => {
     const handler = (event) => {
@@ -95,20 +95,20 @@ function Main(prop) {
             text="All variants"
             name="type"
             id="all"
-            action={setFilter}
+            action={setColorFilter}
             checked={true}
           />
           <Checkbox
             text="Tints only"
             name="type"
             id="tint"
-            action={setFilter}
+            action={setColorFilter}
           />
           <Checkbox
             text="Shades only"
             name="type"
             id="shade"
-            action={setFilter}
+            action={setColorFilter}
           />
         </div>
         {showColorPicker && (
