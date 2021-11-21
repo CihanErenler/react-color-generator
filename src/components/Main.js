@@ -24,18 +24,17 @@ function Main(prop) {
   } = prop;
 
   const picker = useRef(null);
-  const [colorFilter, setColorFilter] = useState("");
+  const [filter, setfilter] = useState("all");
   const [itemsToShow, setItemsToShow] = useState(colors);
 
   useEffect(() => {
-    if (colorFilter === "") return;
-    if (colorFilter === "all") {
+    if (filter === "all") {
       setItemsToShow(colors);
       return;
     }
-    const filtered = colors.filter((color) => color.type === colorFilter);
+    const filtered = colors.filter((color) => color.type === filter);
     setItemsToShow(filtered);
-  }, [colors, colorFilter]);
+  }, [colors, filter]);
 
   useEffect(() => {
     const handler = (event) => {
@@ -95,20 +94,20 @@ function Main(prop) {
             text="All variants"
             name="type"
             id="all"
-            action={setColorFilter}
+            action={setfilter}
             checked={true}
           />
           <Checkbox
             text="Tints only"
             name="type"
             id="tint"
-            action={setColorFilter}
+            action={setfilter}
           />
           <Checkbox
             text="Shades only"
             name="type"
             id="shade"
-            action={setColorFilter}
+            action={setfilter}
           />
         </div>
         {showColorPicker && (
