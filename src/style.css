@@ -98,7 +98,7 @@ h6 {
 
 /* Alert */
 .alert {
-  position: absolute;
+  position: fixed;
   max-width: 320px;
   width: 400px;
   height: 40px;
@@ -114,6 +114,10 @@ h6 {
   background-color: #fcfff5;
   border: 1px solid var(--success-border);
   border-left: 3px solid var(--success);
+  z-index: 9999;
+  opacity: 0;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
 }
 
 .alert.danger {
@@ -128,12 +132,13 @@ h6 {
 }
 
 .fade-in {
-  animation: fadein 0.6s ease forwards;
+  animation: fadein 0.4s ease forwards;
 }
 
 @keyframes fadein {
   to {
     top: 20px;
+    opacity: 1;
   }
 }
 
@@ -385,8 +390,6 @@ h6 {
   .colors {
     grid-template-columns: repeat(10, 1fr);
   }
-
-  
 }
 
 @media only screen and (max-width: 1440px) and (min-width: 300px) {
